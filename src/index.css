@@ -1,5 +1,7 @@
 :root {
   font-family: 'Bricolage Grotesque', sans-serif;
+  --near-white: #f4f4f4;
+  --silver: #999999;
 }
 
 body {
@@ -60,6 +62,10 @@ body {
 .hover-bg-surface:hover,
 .hover-bg-surface:focus {
   background-color: var(--surface);
+}
+
+.number {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Palette */

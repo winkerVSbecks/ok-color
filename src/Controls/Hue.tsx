@@ -1,7 +1,6 @@
 import { Card } from '../Card';
 import { Graph } from '../Graph';
 import * as Tabs from '@radix-ui/react-tabs';
-import '../Tabs.css';
 
 const tabItems = [
   {

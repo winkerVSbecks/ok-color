@@ -1,18 +1,16 @@
-import { Graph } from './Graph';
 import { colorScheme, debugPalette } from './colors';
 import Random from 'canvas-sketch-util/random';
 import eases from './eases';
-import { Card } from './Card';
 import { Nav } from './Nav';
 import { setAppPalette } from './app-palette';
 import { Palette } from './Palette';
 import { Hue } from './Controls/Hue';
+import { useState } from 'react';
 
 const palette = colorScheme();
 const colors = palette.map((c) => c.css);
 debugPalette(colors);
 
-const count = 9;
 const randomEase = () => Random.pick(Object.values(eases));
 const lchEases = {
   h: randomEase(),
@@ -23,6 +21,8 @@ const lchEases = {
 setAppPalette(palette);
 
 function App() {
+  const [count, setCount] = useState(8);
+
   return (
     <>
       <Nav />
@@ -46,7 +46,11 @@ function App() {
         }}
         className="vh-100 pa3"
       >
-        <Palette colors={palette} count={8} />
+        <Palette
+          colors={palette}
+          count={count}
+          onCountChange={(values) => setCount(values[0])}
+        />
         <Hue ease={lchEases.h} count={count} />
       </div>
     </>
