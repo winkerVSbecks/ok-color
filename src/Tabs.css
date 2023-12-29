@@ -1,0 +1,30 @@
+.TabsRoot {
+  display: flex;
+  flex-direction: column;
+}
+
+.TabsList {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.TabsTrigger {
+  user-select: none;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  background: transparent;
+}
+.TabsTrigger[data-state='active'] {
+  color: black;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.TabsTrigger:hover,
+.TabsTrigger:focus {
+  outline: none;
+  border-color: #f4f4f4;
+}
+
+.TabsContent {
+  outline: none;
+}

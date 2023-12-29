@@ -1,0 +1,123 @@
+:root {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+body {
+  background: var(--background);
+}
+
+/* Colors */
+.primary {
+  color: var(--primary);
+}
+.b--primary {
+  border-color: var(--primary);
+}
+
+.hover-primary:hover,
+.hover-primary:focus {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+.b--secondary {
+  border-color: var(--secondary);
+}
+
+.tertiary {
+  color: var(--tertiary);
+}
+.b--tertiary {
+  border-color: var(--tertiary);
+}
+
+.hover-secondary:hover,
+.hover-secondary:focus {
+  color: var(--secondary);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+.b--background {
+  border-color: var(--background);
+}
+
+.hover-bg-background:hover,
+.hover-bg-background:focus {
+  background-color: var(--background);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+.b--surface {
+  border-color: var(--surface);
+}
+
+.hover-bg-surface:hover,
+.hover-bg-surface:focus {
+  background-color: var(--surface);
+}
+
+/* Palette */
+.chip {
+  cursor: pointer;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: right top;
+}
+.chip:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+.chip:active {
+  transform: scale(0.95);
+}
+
+/* Inputs */
+select {
+  font-size: 0.8em;
+  border-radius: 2rem;
+  padding: 0.2rem;
+}
+
+input,
+select {
+  display: block;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  font-family: 'Space Mono', monospace;
+  border: none;
+  width: auto;
+}
+
+label {
+  color: var(--light);
+}
+select {
+  color: var(--light);
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  border: 0;
+  box-shadow: 0 2px 0 0 var(--light);
+  border-radius: 0;
+  padding: 0.25rem 1rem 0.25rem 0rem;
+  background-color: transparent;
+  background-size: 1.25em 1.25em;
+  background-image: conic-gradient(
+    var(--light) 5%,
+    transparent 0 95%,
+    var(--light) 0
+  );
+  background-repeat: no-repeat;
+  background-position: right 0% top 120%;
+}
+.pane select:focus {
+  outline: none;
+  background-color: transparent;
+}
