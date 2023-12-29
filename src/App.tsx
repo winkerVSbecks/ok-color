@@ -41,7 +41,6 @@ function App() {
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gridTemplateRows: 'max-content 1fr max-content 1fr max-content 1fr',
           gap: '1rem',
         }}
         className="vh-100 pa3"

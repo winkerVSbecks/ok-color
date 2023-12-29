@@ -22,7 +22,6 @@ export const Palette = ({
       transition={{
         staggerChildren: 0.1,
       }}
-      style={{ gridRow: '1 / -1' }}
       className="flex flex-column overflow-hidden bg-black pa4"
     >
       <div className="flex flex-column flex-row-l items-center-l justify-between mb6">

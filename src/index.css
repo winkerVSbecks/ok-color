@@ -85,45 +85,13 @@ body {
 }
 
 /* Inputs */
-select {
-  font-size: 0.8em;
-  border-radius: 2rem;
-  padding: 0.2rem;
-}
-
-input,
-select {
+input {
   display: block;
   box-sizing: border-box;
   touch-action: manipulation;
-  font-family: 'Space Mono', monospace;
-  border: none;
-  width: auto;
 }
-
-label {
-  color: var(--light);
-}
-select {
-  color: var(--light);
-  width: 100%;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  border: 0;
-  box-shadow: 0 2px 0 0 var(--light);
-  border-radius: 0;
-  padding: 0.25rem 1rem 0.25rem 0rem;
-  background-color: transparent;
-  background-size: 1.25em 1.25em;
-  background-image: conic-gradient(
-    var(--light) 5%,
-    transparent 0 95%,
-    var(--light) 0
-  );
-  background-repeat: no-repeat;
-  background-position: right 0% top 120%;
-}
-.pane select:focus {
+input:hover,
+input:focus {
   outline: none;
-  background-color: transparent;
+  border: 1px solid var(--primary);
 }
