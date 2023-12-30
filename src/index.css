@@ -64,6 +64,10 @@ body {
   background-color: var(--surface);
 }
 
+.b--currentcolor {
+  border-color: currentColor;
+}
+
 .number {
   font-variant-numeric: tabular-nums;
 }

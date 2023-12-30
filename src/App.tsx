@@ -9,22 +9,36 @@ import { useEffect, useState } from 'react';
 
 const randomEase = () => Random.pick(Object.values(eases));
 
+const randomHue = (): Hue => ({
+  hStart: Random.rangeFloor(0, 360),
+  hStartCenter: 0.5,
+  hEasing: randomEase(),
+  hCycles: 1.0,
+});
+
+const roundToTwo = (n: number) => Math.round(n * 100) / 100;
+
+const randomSaturation = (): Saturation => {
+  const sMin = roundToTwo(Random.range(0.2, 0.5));
+  return {
+    sRange: [sMin, roundToTwo(Random.range(sMin, 1.0))],
+    sEasing: randomEase(),
+  };
+};
+
+const randomLightness = (): Lightness => {
+  const lMin = roundToTwo(Random.range(0.1, 0.5));
+  return {
+    lRange: [lMin, roundToTwo(Random.range(lMin, 0.8))],
+    lEasing: randomEase(),
+  };
+};
+
 function useColorScheme() {
   const [count, setCount] = useState(8);
-  const [hue, setHue] = useState<Hue>({
-    hStart: 179.157,
-    hStartCenter: 0.5,
-    hEasing: randomEase(),
-    hCycles: 1.0,
-  });
-  const [saturation, setSaturation] = useState<Saturation>({
-    sRange: [0.4, 0.96],
-    sEasing: randomEase(),
-  });
-  const [lightness, setLightness] = useState<Lightness>({
-    lRange: [0.04, 0.973],
-    lEasing: randomEase(),
-  });
+  const [hue, setHue] = useState<Hue>(randomHue());
+  const [saturation, setSaturation] = useState<Saturation>(randomSaturation());
+  const [lightness, setLightness] = useState<Lightness>(randomLightness());
 
   const [palette, setPalette] = useState<Color[]>([]);
 
@@ -46,6 +60,13 @@ function useColorScheme() {
     setAppPalette(_palette);
   }, [count, hue, saturation, lightness]);
 
+  function randomConfig() {
+    setCount(Random.rangeFloor(4, 12));
+    setHue(randomHue());
+    setSaturation(randomSaturation());
+    setLightness(randomLightness());
+  }
+
   return {
     palette,
     count,
@@ -56,6 +77,7 @@ function useColorScheme() {
     setSaturation,
     lightness,
     setLightness,
+    randomConfig,
   };
 }
 
@@ -70,22 +92,12 @@ function App() {
     setSaturation,
     lightness,
     setLightness,
+    randomConfig,
   } = useColorScheme();
 
   return (
     <>
-      <Nav />
-      {/* <div className="flex pa3">
-        {[
-          '--primary',
-          '--secondary',
-          '--tertiary',
-          '--surface',
-          '--background',
-        ].map((v) => (
-          <div className="w4 h4 mr3" style={{ background: `var(${v})` }}></div>
-        ))}
-      </div> */}
+      <Nav randomizeConfig={randomConfig} />
       <main className="pa3">
         <Palette
           colors={palette}

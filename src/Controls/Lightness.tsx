@@ -62,9 +62,9 @@ export const Lightness = ({
                   lRange: values as [number, number],
                 })
               }
-              min={-2}
-              max={2}
-              step={0.1}
+              min={0}
+              max={1}
+              step={0.01}
             >
               <Slider.Track className="SliderTrack">
                 <Slider.Range className="SliderRange" />

@@ -1,4 +1,3 @@
-import Random from 'canvas-sketch-util/random';
 import {
   generateColorRamp,
   GenerateColorRampArgument,
@@ -6,35 +5,8 @@ import {
 } from 'rampensau';
 import { filterInvert, formatCss, wcagContrast, oklch } from 'culori';
 
-// Colors
-const defaultColorParams: GenerateColorRampArgument = {
-  total: 8,
-  hStart: Random.rangeFloor(0, 360), // 40
-  // hStart: 7.907,
-  hStartCenter: 0.5,
-  hEasing: (x) => x,
-  hCycles: 0.7,
-  sRange: [0.907, 0.99],
-  sEasing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
-  lRange: [0.151, 0.958],
-  lEasing: (x) => -(Math.cos(Math.PI * x) - 1),
-};
-
 export function colorScheme(params?: GenerateColorRampArgument): Color[] {
-  const colors = generateColorRamp({
-    ...defaultColorParams,
-    ...params,
-    // total: 8,
-    // hStart: 7.907,
-    // hStartCenter: 0.5,
-    // hEasing: (x) => x,
-    // hCycles: 0.708,
-
-    // sRange: [0.907, 0.99],
-    // sEasing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
-    // lRange: [0.151, 0.958],
-    // lEasing: (x) => -(Math.cos(Math.PI * x) - 1) / 2,
-  }).map((hsl) => {
+  const colors = generateColorRamp(params).map((hsl) => {
     const css = formatCss(
       oklch({ mode: 'hsl', h: hsl[0], s: hsl[1], l: hsl[2] })
     );

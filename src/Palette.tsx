@@ -19,12 +19,9 @@ export const Palette = ({
     <motion.div
       initial="initial"
       animate="animate"
-      transition={{
-        staggerChildren: 0.1,
-      }}
       className="palette bg-black pa4 sticky-l top-1-l"
     >
-      <div className="flex flex-column flex-row-l items-center-l justify-between mb4 mb6-l">
+      <div className="flex flex-column flex-row-l items-center-l justify-between mb4 mb5-l">
         <h2 className="f7 ttu tracked near-white fw4 mx0 mt0 mb3 mb0-l">
           Palette
         </h2>
@@ -55,7 +52,7 @@ export const Palette = ({
         </form>
       </div>
       <div className="ba b--primary bw2">
-        {colors.map((c) => (
+        {colors.map((c, idx) => (
           <motion.div
             key={c.css}
             className="flex-auto flex justify-center items-center tc f4 fw8 h3 w-100 chip"
@@ -64,6 +61,7 @@ export const Palette = ({
               color: c.contrast.white < c.contrast.black ? '#000' : '#fff',
             }}
             variants={chipVariants}
+            transition={{ delay: idx * 0.05 }}
           >
             <motion.span
               variants={{ initial: { scale: 0 }, animate: { scale: 1 } }}

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { mapRange } from 'canvas-sketch-util/math';
 import { useId } from 'react';
 
@@ -56,34 +56,38 @@ export const Graph = ({
           <path key={idx} d={`M ${(w * (idx + 1)) / count} 0  V ${h}`} />
         ))}
       </g>
-      <motion.path
-        strokeLinecap="butt"
-        strokeLinejoin="round"
-        strokeWidth={t}
-        fill="none"
-        stroke={`url(#${id})`}
-        d={path}
-        initial={{ pathLength: 0, visibility: 'hidden' }}
-        animate={{ pathLength: 1, visibility: 'visible' }}
-        transition={transition}
-      ></motion.path>
-      <motion.rect
-        x={-t / 2}
-        y={-t / 2}
-        width={t}
-        height={t}
-        rx={t * 0.1}
-        fill={circleColor}
-        style={{
-          offsetPath: `path("${path}")`,
-          offsetDistance: 'var(--offset)',
-        }}
-        // @ts-expect-error animating CSS Variable
-        initial={{ '--offset': '0%' }}
-        // @ts-expect-error animating CSS Variable
-        animate={{ '--offset': '100%' }}
-        transition={transition}
-      />
+      <AnimatePresence>
+        <g key={points.join(',')}>
+          <motion.path
+            strokeLinecap="butt"
+            strokeLinejoin="round"
+            strokeWidth={t}
+            fill="none"
+            stroke={`url(#${id})`}
+            d={path}
+            initial={{ pathLength: 0, visibility: 'hidden' }}
+            animate={{ pathLength: 1, visibility: 'visible' }}
+            transition={transition}
+          ></motion.path>
+          <motion.rect
+            x={-t / 2}
+            y={-t / 2}
+            width={t}
+            height={t}
+            rx={t * 0.1}
+            fill={circleColor}
+            style={{
+              offsetPath: `path("${path}")`,
+              offsetDistance: 'var(--offset)',
+            }}
+            // @ts-expect-error animating CSS Variable
+            initial={{ '--offset': '0%' }}
+            // @ts-expect-error animating CSS Variable
+            animate={{ '--offset': '100%' }}
+            transition={transition}
+          />
+        </g>
+      </AnimatePresence>
     </svg>
   );
 };

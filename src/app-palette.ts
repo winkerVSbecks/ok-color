@@ -1,5 +1,5 @@
 import Random from 'canvas-sketch-util/random';
-import { wcagContrast } from 'culori';
+import { filterBrightness, formatCss, wcagContrast } from 'culori';
 
 const root = document.documentElement;
 
@@ -13,13 +13,26 @@ export function setAppPalette(palette: Color[]) {
     })
   );
 
-  const primary = bestContrastToBg.shift()!;
-  const secondary = bestContrastToBg.shift()! || primary;
-  const tertiary = bestContrastToBg.shift()! || secondary;
+  const fallbackPrimary = formatCss(
+    filterBrightness(1.25, 'oklch')(palette.at(-1)!.css)
+  )!;
+
+  const primary =
+    bestContrastToBg.length < 3
+      ? fallbackPrimary
+      : bestContrastToBg.shift()!.css;
+  const secondary =
+    bestContrastToBg.length < 3
+      ? fallbackPrimary
+      : bestContrastToBg.shift()!.css;
+  const tertiary =
+    bestContrastToBg.length < 3
+      ? fallbackPrimary
+      : bestContrastToBg.shift()!.css;
 
   root.style.setProperty('--background', background);
   root.style.setProperty('--surface', surface);
-  root.style.setProperty('--primary', primary.css);
-  root.style.setProperty('--secondary', secondary.css);
-  root.style.setProperty('--tertiary', tertiary.css);
+  root.style.setProperty('--primary', primary);
+  root.style.setProperty('--secondary', secondary);
+  root.style.setProperty('--tertiary', tertiary);
 }
