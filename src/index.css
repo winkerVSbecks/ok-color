@@ -68,6 +68,35 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.g0 {
+  gap: 0;
+}
+.g1 {
+  gap: 0.25rem;
+}
+.g2 {
+  gap: 0.5rem;
+}
+.g3 {
+  gap: 1rem;
+}
+.g4 {
+  gap: 2rem;
+}
+.g5 {
+  gap: 4rem;
+}
+.g6 {
+  gap: 8rem;
+}
+.g7 {
+  gap: 16rem;
+}
+
+.sticky {
+  position: sticky;
+}
+
 /* Palette */
 .chip {
   cursor: pointer;
@@ -94,4 +123,32 @@ input:hover,
 input:focus {
   outline: none;
   border: 1px solid var(--primary);
+}
+
+/* Main Layout */
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nav {
+  grid-column: 1 / -1;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.palette {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.controls {
+  overflow-y: scroll;
 }

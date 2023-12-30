@@ -14,8 +14,8 @@ export function setAppPalette(palette: Color[]) {
   );
 
   const primary = bestContrastToBg.shift()!;
-  const secondary = bestContrastToBg.shift()!;
-  const tertiary = bestContrastToBg.shift()!;
+  const secondary = bestContrastToBg.shift()! || primary;
+  const tertiary = bestContrastToBg.shift()! || secondary;
 
   root.style.setProperty('--background', background);
   root.style.setProperty('--surface', surface);

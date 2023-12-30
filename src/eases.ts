@@ -1,4 +1,4 @@
-export default {
+const eases = {
   easeInSine: {
     name: 'easeInSine',
     css: 'cubic-bezier(0.12, 0, 0.39, 0)',
@@ -175,3 +175,7 @@ export default {
     },
   },
 };
+
+export type EaseType = keyof typeof eases;
+
+export default eases;

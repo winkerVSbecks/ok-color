@@ -1,5 +1,5 @@
 export const Nav = () => (
-  <nav className="pa3 pa4-ns bg-surface">
+  <nav className="nav pa3 pa4-ns bg-surface">
     <a className="link dim primary b f6 f5-ns dib mr3" href="#">
       OK Color
     </a>

@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 declare module 'canvas-sketch-util/random';
 declare module 'canvas-sketch-util/math';
 
@@ -17,8 +18,26 @@ interface Color {
 }
 
 interface Ease {
-  name: string;
+  name: EaseType;
   css: string;
   points: Vector3[];
   function: (x: number) => number;
+}
+
+interface Hue {
+  hStart: number;
+  hStartCenter?: number;
+  hEasing?: Ease;
+  hCycles?: number;
+  hueList?: number[];
+}
+
+interface Saturation {
+  sRange: [number, number];
+  sEasing: Ease;
+}
+
+interface Lightness {
+  lRange: [number, number];
+  lEasing: Ease;
 }

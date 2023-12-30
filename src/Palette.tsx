@@ -22,13 +22,13 @@ export const Palette = ({
       transition={{
         staggerChildren: 0.1,
       }}
-      className="flex flex-column overflow-hidden bg-black pa4"
+      className="palette bg-black pa4 h-100 overflow-hidden"
     >
       <div className="flex flex-column flex-row-l items-center-l justify-between mb6">
         <h2 className="f7 ttu tracked near-white fw4 mx0 mt0 mb3 mb0-l">
           Palette
         </h2>
-        <form className="flex items-center">
+        <form className="flex items-center w5">
           <label className="f7 ttu tracked near-white fw4 mr3" htmlFor="count">
             Count
           </label>
@@ -36,7 +36,7 @@ export const Palette = ({
             className="SliderRoot"
             value={[count]}
             onValueChange={onCountChange}
-            min={1}
+            min={4}
             max={40}
             step={1}
           >
@@ -54,23 +54,25 @@ export const Palette = ({
           </div>
         </form>
       </div>
-      {colors.map((c) => (
-        <motion.div
-          key={c.css}
-          className="flex-auto flex justify-center items-center tc f4 fw8 w-100 w-80-ns ml-auto chip"
-          style={{
-            backgroundColor: c.css,
-            color: c.contrast.white < c.contrast.black ? '#000' : '#fff',
-          }}
-          variants={chipVariants}
-        >
-          <motion.span
-            variants={{ initial: { scale: 0 }, animate: { scale: 1 } }}
+      <div className="overflow-y-scroll">
+        {colors.map((c) => (
+          <motion.div
+            key={c.css}
+            className="flex-auto flex justify-center items-center tc f4 fw8 w-100 w-80-ns h3 ml-auto chip"
+            style={{
+              backgroundColor: c.css,
+              color: c.contrast.white < c.contrast.black ? '#000' : '#fff',
+            }}
+            variants={chipVariants}
           >
-            {c.printValue}
-          </motion.span>
-        </motion.div>
-      ))}
+            <motion.span
+              variants={{ initial: { scale: 0 }, animate: { scale: 1 } }}
+            >
+              {c.printValue}
+            </motion.span>
+          </motion.div>
+        ))}
+      </div>
     </motion.div>
   </>
 );

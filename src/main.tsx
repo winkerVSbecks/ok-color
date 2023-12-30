@@ -6,6 +6,7 @@ import './index.css';
 import './Tabs.css';
 import './Slider.css';
 import './Select.css';
+import './IconButton.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

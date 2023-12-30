@@ -5,14 +5,22 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from '@radix-ui/react-icons';
-import eases from './eases';
+import eases, { EaseType } from './eases';
 
-export const EaseSelect = ({ name }: { name: string }) => (
-  <div className="mb3">
+export const EaseSelect = ({
+  name,
+  value,
+  onChange,
+}: {
+  name: string;
+  value: EaseType;
+  onChange: (value: EaseType) => void;
+}) => (
+  <div className="mb4">
     <label htmlFor={`${name}-ease`} className="f6 b db mb2">
-      {name} Ease
+      {name} Easing
     </label>
-    <Select.Root>
+    <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger className="SelectTrigger" id={`${name}-ease`}>
         <Select.Value placeholder="Select an ease…" />
         <Select.Icon className="SelectIcon">
