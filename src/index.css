@@ -100,17 +100,7 @@ body {
 /* Palette */
 .chip {
   cursor: pointer;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: right top;
-}
-.chip:hover {
-  transform: scale(1.1);
-  z-index: 1;
-}
-.chip:active {
-  transform: scale(0.95);
 }
 
 /* Inputs */
@@ -129,8 +119,9 @@ input:focus {
 #root {
   display: grid;
   grid-template-rows: auto 1fr;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  align-items: flex-start;
 }
 
 .nav {
@@ -139,14 +130,15 @@ input:focus {
 
 main {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   overflow: hidden;
 }
 
-.palette {
-  display: grid;
-  grid-template-rows: max-content 1fr;
+@media screen and (min-width: 60em) {
+  main {
+    grid-template-columns: 1.5fr 1fr;
+  }
 }
 
 .controls {

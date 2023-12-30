@@ -4,7 +4,7 @@ import eases from './eases';
 import { Nav } from './Nav';
 import { setAppPalette } from './app-palette';
 import { Palette } from './Palette';
-import { Hue } from './Controls/Hue';
+import { Hue, Saturation, Lightness } from './Controls';
 import { useEffect, useState } from 'react';
 
 const randomEase = () => Random.pick(Object.values(eases));
@@ -92,8 +92,13 @@ function App() {
           count={count}
           onCountChange={(values) => setCount(values[0])}
         />
-        <div className="controls">
+        <div className="controls flex flex-column g3">
           <Hue hue={hue} onHueChange={setHue} count={count} />
+          <Saturation
+            saturation={saturation}
+            onSaturationChange={setSaturation}
+          />
+          <Lightness lightness={lightness} onLightnessChange={setLightness} />
         </div>
       </main>
     </>

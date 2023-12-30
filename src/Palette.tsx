@@ -22,9 +22,9 @@ export const Palette = ({
       transition={{
         staggerChildren: 0.1,
       }}
-      className="palette bg-black pa4 h-100 overflow-hidden"
+      className="palette bg-black pa4"
     >
-      <div className="flex flex-column flex-row-l items-center-l justify-between mb6">
+      <div className="flex flex-column flex-row-l items-center-l justify-between mb4 mb6-l">
         <h2 className="f7 ttu tracked near-white fw4 mx0 mt0 mb3 mb0-l">
           Palette
         </h2>
@@ -54,11 +54,11 @@ export const Palette = ({
           </div>
         </form>
       </div>
-      <div className="overflow-y-scroll">
+      <div className="ba b--primary bw2">
         {colors.map((c) => (
           <motion.div
             key={c.css}
-            className="flex-auto flex justify-center items-center tc f4 fw8 w-100 w-80-ns h3 ml-auto chip"
+            className="flex-auto flex justify-center items-center tc f4 fw8 h3 w-100 chip"
             style={{
               backgroundColor: c.css,
               color: c.contrast.white < c.contrast.black ? '#000' : '#fff',

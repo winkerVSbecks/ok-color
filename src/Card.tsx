@@ -7,13 +7,15 @@ export const Card = ({
   summary,
   meta,
   children,
+  defaultOpen,
 }: {
   title: string;
   summary: ReactNode;
-  meta: ReactNode;
+  meta?: ReactNode;
   children: ReactNode;
+  defaultOpen?: boolean;
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div className="ph4 pb4 bg-black">

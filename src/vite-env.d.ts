@@ -26,9 +26,9 @@ interface Ease {
 
 interface Hue {
   hStart: number;
-  hStartCenter?: number;
-  hEasing?: Ease;
-  hCycles?: number;
+  hStartCenter: number;
+  hEasing: Ease;
+  hCycles: number;
   hueList?: number[];
 }
 
