@@ -97,6 +97,12 @@ body {
   position: sticky;
 }
 
+@media screen and (min-width: 60em) {
+  .sticky-l {
+    position: sticky;
+  }
+}
+
 /* Palette */
 .chip {
   cursor: pointer;
@@ -120,7 +126,6 @@ input:focus {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
-  overflow: hidden;
   align-items: flex-start;
 }
 
@@ -132,7 +137,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  overflow: hidden;
+  align-items: start;
 }
 
 @media screen and (min-width: 60em) {

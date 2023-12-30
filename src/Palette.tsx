@@ -22,7 +22,7 @@ export const Palette = ({
       transition={{
         staggerChildren: 0.1,
       }}
-      className="palette bg-black pa4"
+      className="palette bg-black pa4 sticky-l top-1-l"
     >
       <div className="flex flex-column flex-row-l items-center-l justify-between mb4 mb6-l">
         <h2 className="f7 ttu tracked near-white fw4 mx0 mt0 mb3 mb0-l">

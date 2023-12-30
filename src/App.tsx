@@ -97,8 +97,13 @@ function App() {
           <Saturation
             saturation={saturation}
             onSaturationChange={setSaturation}
+            count={count}
           />
-          <Lightness lightness={lightness} onLightnessChange={setLightness} />
+          <Lightness
+            lightness={lightness}
+            onLightnessChange={setLightness}
+            count={count}
+          />
         </div>
       </main>
     </>

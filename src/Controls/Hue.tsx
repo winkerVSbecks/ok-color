@@ -102,9 +102,9 @@ function Ease({
         />
         {/* Hue Start */}
         <div className="mb4">
-          <label htmlFor="hStart" className="f6 b db mb2">
-            Hue Cycles <span className="number">({hStart}°)</span>
-          </label>
+          <div className="f6 b mb2">
+            Hue Start <span className="number">({hStart}°)</span>
+          </div>
           <Slider.Root
             className="SliderRoot"
             value={[hStart]}
@@ -121,7 +121,7 @@ function Ease({
             <Slider.Thumb
               className="SliderThumb"
               id="count"
-              aria-describedby="hStart-desc"
+              aria-label="Hue Start"
             />
           </Slider.Root>
           <small id="hStart-desc" className="f6 silver db mb2">
@@ -130,9 +130,9 @@ function Ease({
         </div>
         {/* Hue Start Center */}
         <div className="mb4">
-          <label htmlFor="hStartCenter" className="f6 b db mb2">
+          <div className="f6 b mb2">
             Hue Start Center <span className="number">({hStartCenter})</span>
-          </label>
+          </div>
           <Slider.Root
             className="SliderRoot"
             value={[hStartCenter]}
@@ -149,15 +149,15 @@ function Ease({
             <Slider.Thumb
               className="SliderThumb"
               id="count"
-              aria-describedby="hStartCenter-desc"
+              aria-label="Hue Start Center"
             />
           </Slider.Root>
         </div>
         {/* Hue Cycles */}
         <div className="mb4">
-          <label htmlFor="hCycles" className="f6 b db mb2">
+          <div className="f6 b mb2">
             Hue Cycles <span className="number">({hCycles})</span>
-          </label>
+          </div>
           <Slider.Root
             className="SliderRoot"
             value={[hCycles]}
@@ -174,7 +174,7 @@ function Ease({
             <Slider.Thumb
               className="SliderThumb"
               id="count"
-              aria-describedby="hCycles-desc"
+              aria-label="Hue Cycles"
             />
           </Slider.Root>
           <small id="hCycles-desc" className="f6 silver db mb2">

@@ -24,7 +24,7 @@ export const Card = ({
         open={open}
         onOpenChange={setOpen}
       >
-        <div className="flex items-center justify-between sticky top-0 bg-black pt4 pb5 nl4 nr4 ph4">
+        <div className="flex items-center justify-between bg-black pt4 pb5 nl4 nr4 ph4">
           <h2 className="f7 ttu tracked near-white fw4 mx0 mt0 mb3 mb0-l">
             {title}
           </h2>
