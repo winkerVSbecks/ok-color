@@ -6,15 +6,25 @@ import { setAppPalette } from './app-palette';
 import { Palette } from './Palette';
 import { Hue, Saturation, Lightness } from './Controls';
 import { useEffect, useState } from 'react';
+import { colorHarmonies, colorHarmony } from 'rampensau';
 
 const randomEase = () => Random.pick(Object.values(eases));
 
-const randomHue = (): Hue => ({
-  hStart: Random.rangeFloor(0, 360),
-  hStartCenter: 0.5,
-  hEasing: randomEase(),
-  hCycles: 1.0,
-});
+const randomHue = (): Hue => {
+  const harmony: colorHarmony = Random.pick(Object.keys(colorHarmonies));
+  const hStart = Random.rangeFloor(0, 360);
+
+  return {
+    hStart,
+    hStartCenter: 0.5,
+    hEasing: randomEase(),
+    hCycles: 1.0,
+    hHarmony: {
+      name: harmony,
+      hueList: colorHarmonies[harmony](hStart),
+    },
+  };
+};
 
 const roundToTwo = (n: number) => Math.round(n * 100) / 100;
 

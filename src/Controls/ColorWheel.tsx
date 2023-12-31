@@ -1,55 +1,141 @@
-export const ColorWheel = () => {
+import { colorHarmony } from 'rampensau';
+
+const colorHarmonyVisualization = {
+  complementary: [4, 10],
+  analogous: [4, 5, 6],
+  triadic: [4, 8, 0],
+  tetradic: [4, 7, 1, 10],
+  splitComplementary: [10, 3, 5],
+};
+
+export const ColorWheel = ({
+  mode = 'splitComplementary',
+}: {
+  mode: colorHarmony;
+}) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="540" height="540">
-      <path
-        fill="#fefe33"
-        d="M511.481 205.295c11.906 44.433 11.906 84.977 0 129.41l-24.166 14.637L270 270l220.204-77.9z"
-      ></path>
-      <path
-        fill="#fb9902"
-        d="M334.705 28.519c44.432 11.905 79.545 32.177 112.072 64.704l.623 24.873L270 270l43.065-229.492z"
-      ></path>
-      <path
-        fill="#fabc02"
-        d="M446.777 93.223c32.527 32.527 52.799 67.64 64.704 112.072L270 270z"
-      ></path>
-      <path
-        fill="#fe2712"
-        d="M93.223 93.223c32.527-32.527 67.64-52.799 112.072-64.704l25.91 15.983L270 270 92.74 120.057z"
-      ></path>
-      <path
-        fill="#fd5308"
-        d="M205.295 28.519c44.433-11.906 84.977-11.906 129.41 0L270 270z"
-      ></path>
-      <path
-        fill="#8601af"
-        d="M28.519 334.705c-11.906-44.433-11.906-84.977 0-129.41l27.792-18.668L270 270 55.855 349.405z"
-      ></path>
-      <path
-        fill="#a7194b"
-        d="M28.519 205.295c11.905-44.432 32.177-79.545 64.704-112.072L270 270z"
-      ></path>
-      <path
-        fill="#0247fe"
-        d="M205.295 511.481c-44.432-11.905-79.545-32.177-112.072-64.704l2.085-28.188L270 270l-38.955 229.706z"
-      ></path>
-      <path
-        fill="#3d01a4"
-        d="M93.223 446.777c-32.527-32.527-52.799-67.64-64.704-112.072L270 270z"
-      ></path>
-      <path
-        fill="#66b032"
-        d="M446.777 446.777c-32.527 32.527-67.64 52.799-112.072 64.704l-24.252-15.093L270 270l176.046 151.157z"
-      ></path>
-      <path
-        fill="#0391ce"
-        d="M334.705 511.481c-44.433 11.906-84.977 11.906-129.41 0L270 270z"
-      ></path>
-      <path
-        fill="#d0ea2b"
-        d="M511.481 334.705c-11.905 44.432-32.177 79.545-64.704 112.072L270 270l241.481 64.705z"
-      ></path>
-      {/* <circle cx="270" cy="270" r="153.796" fill="#fff"></circle> */}
+    <svg viewBox="0 0 100 100" className="db w-100">
+      <g transform="rotate(45 50 50)">
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#FCFE07"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(0) ? 32 : 24}
+          transform="rotate(-90 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#FC8F09"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(1) ? 32 : 24}
+          transform="rotate(-60 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#FC5B09"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(2) ? 32 : 24}
+          transform="rotate(-30 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#FC2C08"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(3) ? 32 : 24}
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#C60609"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(4) ? 32 : 24}
+          transform="rotate(30 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#910659"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(5) ? 32 : 24}
+          transform="rotate(60 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#59065A"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(6) ? 32 : 24}
+          transform="rotate(90 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#080658"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(7) ? 32 : 24}
+          transform="rotate(120 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#0D3290"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(8) ? 32 : 24}
+          transform="rotate(150 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#085B5A"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(9) ? 32 : 24}
+          transform="rotate(180 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#2F8D0B"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(10) ? 32 : 24}
+          transform="rotate(210 50 50)"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#58C800"
+          strokeDasharray="15.7 188.5"
+          strokeWidth={colorHarmonyVisualization[mode].includes(11) ? 32 : 24}
+          transform="rotate(240 50 50)"
+        ></circle>
+      </g>
     </svg>
   );
 };

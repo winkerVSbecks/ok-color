@@ -5,23 +5,23 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from '@radix-ui/react-icons';
-import eases, { EaseType } from './eases';
+import { colorHarmonies, colorHarmony } from 'rampensau';
+const colorHarmonyTypes = Object.keys(colorHarmonies);
 
-export const EaseSelect = ({
-  name,
+export const ColorHarmonySelect = ({
   value,
   onChange,
 }: {
   name: string;
-  value: EaseType;
-  onChange: (value: EaseType) => void;
+  value: colorHarmony;
+  onChange: (value: colorHarmony) => void;
 }) => (
   <div className="mb4">
-    <label htmlFor={`${name}-ease`} className="f6 b db mb2">
-      {name} Easing
+    <label htmlFor="colorHarmony" className="f6 b db mb2">
+      Color Harmony
     </label>
     <Select.Root value={value} onValueChange={onChange}>
-      <Select.Trigger className="SelectTrigger" id={`${name}-ease`}>
+      <Select.Trigger className="SelectTrigger" id="colorHarmony">
         <Select.Value placeholder="Select an ease…" />
         <Select.Icon className="SelectIcon">
           <ChevronDownIcon />
@@ -33,9 +33,9 @@ export const EaseSelect = ({
             <ChevronUpIcon />
           </Select.ScrollUpButton>
           <Select.Viewport className="SelectViewport">
-            {Object.entries(eases).map(([key, ease]) => (
-              <SelectItem key={key} value={key}>
-                {ease.name}
+            {colorHarmonyTypes.map((colorHarmonyType) => (
+              <SelectItem key={colorHarmonyType} value={colorHarmonyType}>
+                {colorHarmonyType}
               </SelectItem>
             ))}
           </Select.Viewport>

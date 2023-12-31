@@ -1,5 +1,5 @@
 import * as Slider from '@radix-ui/react-slider';
-import { EaseSelect } from '../EaseSelect';
+import { EaseSelect } from './EaseSelect';
 import { Card } from '../Card';
 import eases from '../eases';
 import { Graph } from '../Graph';

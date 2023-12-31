@@ -29,7 +29,10 @@ interface Hue {
   hStartCenter: number;
   hEasing: Ease;
   hCycles: number;
-  hueList?: number[];
+  hHarmony: {
+    name: colorHarmony;
+    hueList?: number[];
+  };
 }
 
 interface Saturation {

@@ -1,9 +1,12 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import * as Slider from '@radix-ui/react-slider';
 import { Card } from '../Card';
-import { EaseSelect } from '../EaseSelect';
+import { EaseSelect } from './EaseSelect';
 import { Graph } from '../Graph';
 import eases from '../eases';
+import { ColorWheel } from './ColorWheel';
+import { ColorHarmonySelect } from './ColorHarmonySelect';
+import { colorHarmonies } from 'rampensau';
 
 const tabItems = [
   {
@@ -68,17 +71,75 @@ export const Hue = ({
         }
       >
         <Tabs.Content className="TabsContent" value="ease">
-          <Ease hue={hue} onHueChange={onHueChange} count={count} />
+          <EasingMode hue={hue} onHueChange={onHueChange} count={count} />
         </Tabs.Content>
         <Tabs.Content className="TabsContent" value="color-harmony">
-          Color Harmony
+          <ColorHarmonyMode hue={hue} onHueChange={onHueChange} />
         </Tabs.Content>
       </Card>
     </Tabs.Root>
   );
 };
 
-function Ease({
+function ColorHarmonyMode({
+  hue,
+  onHueChange,
+}: {
+  hue: Hue;
+  onHueChange: (value: Hue) => void;
+}) {
+  const { hStart, hHarmony } = hue;
+  return (
+    <div>
+      <ColorWheel mode={hHarmony.name} />
+      <form className="near-white">
+        <ColorHarmonySelect
+          name="Hue"
+          value={hHarmony!.name}
+          onChange={(value) => {
+            onHueChange({
+              ...hue,
+              hHarmony: {
+                name: value,
+                hueList: colorHarmonies[value](hStart),
+              },
+            });
+          }}
+        />
+        {/* Hue Start */}
+        <div className="mb4">
+          <div className="f6 b mb2">
+            Hue Start <span className="number">({hStart}°)</span>
+          </div>
+          <Slider.Root
+            className="SliderRoot"
+            value={[hStart]}
+            onValueChange={(values) =>
+              onHueChange({ ...hue, hStart: values[0] })
+            }
+            min={-2}
+            max={2}
+            step={0.1}
+          >
+            <Slider.Track className="SliderTrack">
+              <Slider.Range className="SliderRange" />
+            </Slider.Track>
+            <Slider.Thumb
+              className="SliderThumb"
+              id="count"
+              aria-label="Hue Start"
+            />
+          </Slider.Root>
+          <small id="hStart-desc" className="f6 silver db mb2">
+            hue at the start of the ramp
+          </small>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+function EasingMode({
   count,
   hue,
   onHueChange,
